@@ -1,0 +1,292 @@
+:root {
+  --deg-purple-orange: linear-gradient(236deg, rgba(171,2,104,1) 0%, rgba(147,0,74,1) 51%, rgba(255,147,30,1) 100%);
+  
+  /* Light vars */
+  --orange: #F78921;
+  --red-danger: #ec301b;
+  --red-danger-hover: #bd1a08;
+  --primary: #15B097;
+  --secondary: #9A94BC;
+  --tertiary: #9B5094;
+  --tertiary-hover: #653160;
+
+  /* Dark vars */
+  --font-dark: #fcfcfc;
+
+  /* Typography */
+  --font-xl: 6.4rem;
+  
+  /* Screen vars */
+  --max-width: 120rem;
+}
+
+/* Adaptamos al modo oscuro */
+@media (prefers-color-sheme: dark) {
+  /* :root {
+  } */
+}
+
+/* Adaptamos al alto contraste */
+@media (prefers-ctonrast: hight) {
+  /* :root {
+  } */
+}
+
+/* Reset margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+/* Envitamos problemas con las imagenes */
+img, picture, video, iframe, figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* Opcional */
+  /* object-fit: cover;
+  object-position: center center; */
+}
+
+a {
+  display: block;
+}
+
+h1 a, h2 a, h3 a, h4 a, p a, span a {
+  display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* Configuramos que las anclas se muevan suave */
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+/* Descativamos los estilos por defecto en las principales etiquetas de texto */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+/* Configuramos el texto que seleccionamos */
+::selection {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+/* Nivelamos problemas de tipografias y colocacion de formularios */
+form, input, textarea, select, button, label {
+  font-family: inherit;
+  font-size: inherit;
+  hyphens: auto;
+  background-color: transparent;
+  display: block;
+  color: inherit;
+  /* Opcional */
+  /* appearance: none; */
+}
+
+/* Resetamos las tablas */
+table, tr, td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* Configuramos la tipografia para toda la web */
+body {
+  min-height: 100vh;
+  font-size: 1.6rem;
+  font-family: var(--principal-font);
+  color: var(--text-color);
+  background-color: var(--font-dark);
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* Opcional */
+  /* line-height: 1.4rem; */
+  /* hyphens: auto; */
+  /* font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-ftont-smoothing: grayscale; */
+}
+
+.main {
+  grid-template-columns: 100%;
+  max-width: var(--max-width);
+  min-height: 100vh;
+  /* padding: 2rem; */
+  margin: 0 auto;
+}
+.primary-btn {
+  /* border: .2rem solid var(--primary); */
+  border: none;
+  border-radius: 1.2rem;
+  color: var(--primary);
+  font-weight: bold;
+  padding: 1.2rem 1.8rem;
+  display: block;
+  position: relative;
+  font-size: 1.8rem;
+  background: transparent;
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  z-index: 1;
+}
+.primary-btn span {
+  position: absolute;
+  border-radius: 1.2rem;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: -1;
+  border: .4rem solid var(--primary);
+}
+.primary-btn span::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 8%;
+  height: 1000%;
+  background: var(--font-dark);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-60deg);
+  transition: all .6s ease;
+}
+
+.primary-btn:hover span::before {
+  transform: translate(-50%, -50%) rotate(-90deg);
+  width: 100%;
+  background: var(--primary);
+}
+.primary-btn:hover {
+  color: var(--font-dark);
+}
+
+.form-container{
+  margin: o auto;
+  width: 100%;
+  max-width: 60rem;
+}
+
+.btn {
+  width: 20rem;
+  height: 4.5rem;
+  font-size: 2.3rem;
+  cursor: pointer;
+  margin: 0 auto;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--font-dark);
+  font-weight: 700;
+  position: relative;
+  transition: .5s all ease;
+  z-index: 1;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--red-danger);
+  z-index: -1;
+  transition: .5s all ease;
+  border-radius: .6rem;
+}
+
+.btn:hover::before {
+  width: 100%;
+}
+
+.btn:hover {
+  color: var(--font-dark);
+}
+.input-box {
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
+  border: .1rem solid #e2e2e2;
+  outline: .2rem solid transparent;
+  padding: 1.2rem;
+  text-align: center;
+  color: #707070;
+  font-weight: bold;
+  font-size: 1.8rem;
+  border-radius: 1.2rem;
+  transition: .3s all ease;
+}
+
+.input-box::placeholder {
+  font-weight: normal;
+}
+
+.input-box:valid,
+.input-box:focus {
+  outline: .2rem solid var(--tertiary);
+}
+
+
+@media (min-width: 768px) {
+  .btn {
+    color: var(--deg-purple-orange);
+  }
+  .btn::before {
+    width: .5rem;
+  }
+
+  .btn:hover::before {
+    width: 100%;
+  }
+  
+  .btn:hover {
+    color: var(--font-dark);
+  }
+}
+
+/* .logoutBtn {
+  width: 25rem;
+  max-width: 30rem;
+  height: min-content;
+  padding: 1.2rem;
+  border: .4rem solid transparent;
+  background: var(--red-danger);
+  border-radius: 1.2rem;
+  margin: 0 auto;
+  color: var(--font-dark);
+  font-weight: bold;
+  transition: .3s all ease;
+}
+.logoutBtn:hover {
+  border: .4rem solid var(--red-danger);
+  color: var(--red-danger-hover);
+  background: transparent;
+  transition: .3s all ease;
+} */
